@@ -1,0 +1,110 @@
+\documentclass[letterpaper]{article}
+\input{../include.tex}
+
+\title{The Odds of Getting Slayer-Locked}
+
+\begin{document}
+
+\maketitle
+
+Let $p$ be the probability that you can complete any given task. Let $N(t)$ be the amount of points you would have on task $t$, allowing negative points. Let $L$ be the event that you get locked at some point (that is, $N(t) < 0$ for some $t$). Let $\varphi$ the amount of points awarded for completion, and let $\beta$ be the cost to skip a task. This problem is interestingly much more difficult if $\varphi$ and $\beta$ are irrational (we will see why shortly); fortunately, this is not the case for any slayer master, at the moment\footnote{It would be very strange, indeed, if point rewards or skip costs were \emph{ever} irrational: imagine a slayer master that charged a reduced rate of $\sqrt{43}$ points to skip a task!}. We may further assume without loss of generality that $\varphi$ and $\beta$ are integers, as the probability of getting locked does not change if we multiply both $\varphi$ and $\beta$ by the product of their denominators, making both integers. 
+
+Furthermore, let $T_L = \min\{t\ge 0 \mid N(t) < 0\}$ be the 
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+For any time $t$ and $n \ge 0$,
+\begin{alignat*}{2}
+	P(L | N(t){=}n) &{}={}&& P(L | N(t){=}n, N(t+1){=}N(t) + \varphi)P(N(t+1){=}N(t)+\varphi|N(t){=}n) \\
+	&&&{}+ P(L|N(t){=}n,N(t+1){=}N(t)-\beta)P(N(t+1){=}N(t)-\beta|N(t){=}n).
+\end{alignat*}
+Now, $N(t+1) - N(t)$ is independent of $N(t)$, and $P(N(t+1){=}N(t) + \varphi) = p$, and $P(N(t+1){=}N(t)-\beta) = 1-p$, so
+\begin{equation*}
+	P(L|N(t){=}n) = pP(L|N(t){=}n, N(t+1){=}n+\varphi) + (1-p)P(L|N(t){=}n, N(t+1){=}N(t)-\beta).
+\end{equation*}
+\textbf{This is wrong!}
+Furthermore, whether you get locked depends only on your most recent number of points, so
+\begin{equation*}
+	P(L|N(t){=}n) = pP(L|N(t+1){=}n+\varphi) + (1-p)P(L|N(t+1){=}n-\beta).
+\end{equation*}
+If $n \ge \beta$, then we can't say much more; if $n < \beta$, however, we know that \\$P(L|N(t+1){=}n-\beta) = 1$, as you have already been locked.
+Let $a_n = P(L|N(t){=}n)$. Then
+\begin{equation*}
+	a_n = pa_{n+\varphi} + (1-p)a_{n-\beta}
+\end{equation*}
+if $n \ge \beta$, and
+\begin{equation*}
+	a_n = pa_{n+\varphi} + 1 - p
+\end{equation*}
+if $n < \beta$.
+Since $P(L) = P(L|N(0) {=}0) = a_0$ (because $N(0)$ is always 0), we have
+\begin{align*}
+	a_0 = P(L) &= \sum_{n=-\infty}^\infty P(L|N(t){=}n)P(N(t){=}n) \\
+	&= \sum_{n=1}^{\infty}P(L|N(t){=}{-n})P(N(t){=}{-n}) + \sum_{n=0}^\infty a_n P(N(t){=}n) \\
+	&= \sum_{n=1}^\infty P(N(t){=}{-n}) + a_0 P(N(t){=}0) + \sum_{n=1}^\infty a_nP(N(t){=}n) \\
+	&= P(N(t) {<}0) + a_0P(N(t){=}0) + \sum_{n=1}^\infty a_nP(N(t){=}n).
+\end{align*}
+for any $t$. Then, for any $t>0$,
+\begin{equation*}
+	a_0 = \frac{1}{1-P(N(t){=}0)}\left[P(N(t){<} 0) + \sum_{n=1}^\infty a_nP(N(t){=}n)\right].
+\end{equation*}
+The probability $P(N(t){<}0)$ is actually not too hard to compute; $N(t) < 0$ if and only if you completed $u$ tasks and could not complete $v$ tasks and \\$N(t) = u\varphi - v\beta \le -1$. Since $t = u + v$, this is equivalent to $u \le \frac{\beta t- 1}{\beta + \varphi}$. The number $u$ of doable tasks in $t$ tasks is binomially distributed with parameters $p$ and $t$, so we get
+\begin{equation*}
+	P(N(t){<}0) = F_{p,t}\left(\frac{\beta t - 1}{\beta+\varphi}\right),
+\end{equation*}
+where $F_{p,t}$ is the CDF of a binomial random variable with parameters $p$ and $t$.
+
+We can also compute $P(N(t){=} 0)$ in a similar way. In fact, $N(t) = 0$ if and only if you completed $u$ tasks and could not complete $v$, and $N(t) = u\varphi - \beta v = 0$. Again using the fact that $t=u+v$, this equivalent to $u = \frac{\beta t}{\beta + \varphi}$. Let $g = \gcd(\beta, \varphi)$, and write $\beta = bg$ and $\varphi = fg$. Since $b \nmid (b+f)$ because $b$ and $f$ must be relatively prime, it follows that $u = \frac{\beta t}{\beta +\varphi} = \frac{bt}{b+f}$ is an integer if and only if $(b+f) \mid t$. That is, $N(t) = 0$ can only occur when $t$ is a multiple of $b+f$. Then we get
+\begin{equation*}
+	P(N(t)=0) = \begin{cases}
+		\left(\begin{matrix}t \\[0.2em]\frac{\beta t}{\beta + \varphi}\end{matrix}\right)p^\frac{\beta t}{\beta+\varphi}(1-p)^\frac{\varphi t}{\beta+\varphi} & (b+f) \mid t, \\
+		0 & (b+f)\nmid t.
+	\end{cases}
+\end{equation*}
+Finally, we also compute $P(N(t){=}n)$ for $n \ge 1$ using a similar technique. Similar to before, $N(t) = n$ if and only if you completed $u$ tasks and could not complete $v = t- u$, and $u\varphi - v\beta = n$, that is, $u = \frac{\beta t + n}{\beta + \varphi}$. Again, $u$ is an integer, so we need $\frac{\beta t + n}{\beta + \varphi}$ also to be an integer. Let $n = dg + r$, where $0 \le r < g$. Then $N(t) = n$ if and only if $u = \frac{bt + d + \frac{r}{g}}{b + f}$, which can only be an integer if $r= 0$. Indeed, if $r\ne 0$, then $\frac{r}{g} \in (0,1)$, so the numerator ($bt + d +\frac{r}{g}$) in the previous expression would be a non-integer, and a non-integer divided by an integer ($b+f$) is still a non-integer by the closure of $\mathbb{Z}$ under multiplication.
+
+Thus, $P(N(t){=}n)$ is nonzero if and only if $n = dg$ is a multiple of $g$, and $u = \frac{b t + d}{b+f}$ is an integer. Then we require that $(b+f)\mid (bt + d)$, so $bt+d = k(b+f)$ for some integer $k$, or $d = (k-t)b + kf$. Since $u$ is distributed binomially with parameters $p$ and $t$, we also require that $0 \le u \le t$ to obtain a nonzero probability, which is equivalent to saying that $1\le n \le \varphi t$, and $1 \le d \le ft$, which is equivalent to $\frac{bt+1}{b+f}\le k\le t$. Thus, $P(N(t) =n )$ is nonzero if and only if $n = dg = (k-t)\beta + k \varphi$ for $\left\lceil\frac{bt + 1}{b+f}\right\rceil \le k \le t$. 
+Hence,
+\begin{equation*}
+	P(N(t){=}n) = \begin{cases}
+		\left(\begin{matrix}t \\[0.2em]\frac{\beta t + n}{\beta + \varphi}\end{matrix}\right)p^\frac{\beta t + n}{\beta+\varphi}(1-p)^\frac{\varphi t - n}{\beta+\varphi} & n = k(\beta + \varphi) - \beta t, \; \left\lceil \frac{bt+1}{b+f}\right\rceil \le k \le t,\\
+		0 & \text{otherwise}.
+	\end{cases}
+\end{equation*}
+Combining these facts with the original equation gives, for any $t>0$,
+\begin{equation}
+	\label{eq:recurrence}
+	a_0 = \frac{1}{1-P(N(t){=}0)}\left[P(N(t){<} 0) + \sum_{k=\left\lceil\frac{bt+1}{b+f}\right\rceil}^{t} a_{(k-t)\beta + k\varphi}P(N(t){=}(k-t)\beta + k\varphi)\right].
+\end{equation}
+In this equation, we know everything except for $\{a_n\}$. Some basic facts, however may be derived. It is obvious that $P(N(t){=}0) \to 0 $ as $t \to \infty$. Since $a_n \ge 0$ for all $n$ (by virtue of being a probability), it follows that
+\begin{equation*}
+	a_0 \ge \lim_{t\to \infty}P(N(t){<}0) = \lim_{t\to\infty}F_{p,t}\left(\frac{\beta t - 1}{\beta + \varphi}\right).
+\end{equation*}
+By the central limit theorem, we have
+\begin{equation*}
+	F_{p,t}(x) \to \Phi\left(\frac{x - tp}{\sqrt{tp(1-p)}}\right)
+\end{equation*}
+uniformly in $x$ as $t \to \infty$, where $\Phi$ is the CDF of the standard normal distribution. Then
+\begin{equation}
+	\label{eq:lower_bound}
+	a_0 \ge \lim_{t\to\infty}\Phi\left(\frac{\frac{\beta t - 1}{\beta +\varphi} - tp}{\sqrt{tp(1-p)}}\right) =\begin{cases}
+		1 & \frac{\beta}{\beta+\varphi} > p, \\
+		0 & \text{otherwise}.
+	\end{cases}
+\end{equation}
+Since $a_0 = P(L)$ is a probability, we also have $a_0 \le 1$; thus, you are guaranteed to get slayer-locked at some point if $\frac{\beta}{\beta + \varphi} > p$.
+
+If $\frac{\beta}{\beta +\varphi} \le p$, then \eqref{eq:lower_bound} tells us nothing, as we already know that the probability $a_0 \ge 0$ in any case. We can also use the fact that $a_n \le 1$ for all $n$ (by virtue of being a probability) to obtain the upper bound
+\begin{equation*}
+	a_0 \le \frac{1}{1-P(N(t){=}0)}\left[P(N(t){<} 0) + \sum_{k=\left\lceil\frac{bt+1}{b+f}\right\rceil}^{t} P(N(t){=}(k-t)\beta + k\varphi)\right].
+\end{equation*}
+We can again take the limit as $t\to \infty$, in which case we again have $P(N(t){=}0) \to 0$, and, by the assumption $\frac{\beta}{\beta+\varphi} \le p$, we also have $P(N(t){<}0)\to 0$. Thus,
+\begin{align*}
+	a_0 &\le \lim_{t\to\infty}\sum_{k=\left\lceil\frac{bt+1}{b+f}\right\rceil}^{t} P(N(t){=}(k-t)\beta + k\varphi) \\
+	&\le \lim_{t\to\infty}\sum_{k=\left\lceil\frac{bt+1}{b+f}\right\rceil}^{t} \binom{t}{k}p^k(1-p)^{t-k} \\
+	&\le \lim_{t\to\infty}\left[1 -F_{p,t}\left(t-\left\lceil\frac{bt+1}{b+f}\right\rceil-1\right)\right] \\[0.5em]
+	&\le 1 - \lim_{t\to\infty} \Phi\left(\frac{t - \left\lceil\frac{bt+1}{b+f}\right\rceil - 1 - tp}{\sqrt{tp(1-p)}}\right)
+\end{align*}
+
+\end{document}
