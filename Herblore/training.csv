@@ -1,0 +1,39 @@
+level,potion,grimy,herb,base,secondary,secondary_quantity,xp,number_per_hour,amulet_works,goggles_work
+3,Attack potion,Grimy guam leaf,Guam leaf,Guam potion (unf),Eye of newt,1,25,2500,YES,YES
+5,Antipoison,Grimy marrentill,Marrentill,Marrentill potion (unf),Unicorn horn dust,1,37.5,2500,YES,YES
+12,Strength potion,Grimy tarromin,Tarromin,Tarromin potion (unf),Limpwurt root,1,50,2500,YES,YES
+15,Serum 207,Grimy tarromin,Tarromin,Tarromin potion (unf),Ashes,1,50,2330,YES,NO
+22,Compost potion,Grimy harralander,Harralander,Harralander potion (unf),Volcanic ash,1,60,2500,YES,YES
+22,Restore potion,Grimy harralander,Harralander,Harralander potion (unf),Red spiders' eggs,1,62.5,2500,YES,YES
+26,Energy potion,Grimy harralander,Harralander,Harralander potion (unf),Chocolate dust,1,67.5,2500,YES,YES
+34,Agility potion,Grimy toadflax,Toadflax,Toadflax potion (unf),Toad's legs,1,80,2500,YES,YES
+36,Combat potion,Grimy harralander,Harralander,Harralander potion (unf),Goat horn dust,1,84,2500,YES,YES
+38,Prayer potion,Grimy ranarr weed,Ranarr weed,Ranarr potion (unf),Snape grass,1,87.5,2500,YES,YES
+45,Super attack,Grimy irit leaf,Irit leaf,Irit potion (unf),Eye of newt,1,100,2500,YES,YES
+48,Superantipoison,Grimy irit leaf,Irit leaf,Irit potion (unf),Unicorn horn dust,1,106.3,2500,YES,YES
+50,Fishing potion,Grimy avantoe,Avantoe,Avantoe potion (unf),Snape grass,1,112.5,2500,YES,YES
+52,Super energy,Grimy avantoe,Avantoe,Avantoe potion (unf),Mort myre fungus,1,117.5,2500,YES,YES
+53,Hunter potion,Grimy avantoe,Avantoe,Avantoe potion (unf),Kebbit teeth dust,1,120,2500,YES,YES
+54,Goading potion,Grimy harralander,Harralander,Harralander potion (unf),Aldarium,1,132,2500,YES,YES
+55,Super strength,Grimy kwuarm,Kwuarm,Kwuarm potion (unf),Limpwurt root,1,125,2500,YES,YES
+58,Prayer regeneration potion,Grimy huasca,Huasca,Huasca potion (unf),Aldarium,1,132,2500,YES,YES
+63,Super restore,Grimy snapdragon,Snapdragon,Snapdragon potion (unf),Red spiders' eggs,1,142.5,2500,YES,YES
+66,Super defence,Grimy cadantine,Cadantine,Cadantine potion (unf),White berries,1,150,2500,YES,YES
+69,Antifire potion,Grimy lantadyme,Lantadyme,Lantadyme potion (unf),Dragon scale dust,1,157.5,2500,YES,YES
+72,Ranging potion,Grimy dwarf weed,Dwarf weed,Dwarf weed potion (unf),Wine of zamorak,1,162.5,2500,YES,YES
+76,Magic potion,Grimy lantadyme,Lantadyme,Lantadyme potion (unf),Potato cactus,1,172.5,2500,YES,YES
+77,Stamina potion,N/A,N/A,Super energy(4),Amylase crystal,4,102,5250,NO,YES
+80,Bastion potion,N/A,N/A,Cadantine blood potion (unf),Wine of zamorak,1,155,2500,YES,YES
+80,Battlemage potion,N/A,N/A,Cadantine blood potion (unf),Potato cactus,1,155,2500,YES,YES
+81,Saradomin brew,Grimy toadflax,Toadflax,Toadflax potion (unf),Crushed nest,1,180,2500,YES,YES
+84,Extended antifire,N/A,N/A,Antifire potion(4),Lava scale shard,4,110,5250,NO,YES
+85,Ancient brew,Grimy dwarf weed,Dwarf weed,Dwarf weed potion (unf),Nihil dust,1,190,2750,YES,YES
+87,Anti-venom,N/A,N/A,Antidote++(4),Zulrah's scales,20,120,5250,NO,YES
+88,Menaphite remedy,Grimy dwarf weed,Dwarf weed,Dwarf weed potion (unf),Lily of the sands,1,200,2500,YES,YES
+90,Super combat potion,N/A,N/A,"Super attack(4), Super strength(4), Super defence(4)",Torstol,1,150,2166,NO,YES
+91,Forgotten brew,N/A,N/A,Ancient brew(4),Ancient essence,80,145,1833,NO,YES
+92,Super antifire potion,N/A,N/A,Antifire potion(4),Crushed superior dragon bones,1,130,2500,NO,YES
+94,Anti-venom+,N/A,N/A,Anti-venom(4),Torstol,1,125,2500,NO,YES
+94,Extended anti-venom+,N/A,N/A,Anti-venom+(4),Araxyte venom sack,4,80,1833,NO,YES
+98,Extended super antifire,N/A,N/A,Super antifire potion(4),Lava scale shard,4,160,5250,NO,YES
+98,Extended super antifire,N/A,N/A,Extended antifire(4),Crushed superior dragon bones,1,180,2500,NO,YES

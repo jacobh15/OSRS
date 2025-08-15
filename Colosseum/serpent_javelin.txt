@@ -1,0 +1,55 @@
+Javelin South, Serpent North
+	Stand
+		Middle
+	First attack
+		Serpent
+		4 ticks
+		2 attacks before javelin hits
+	Simulation
+		https://osrs-colosseum.netlify.app/?13201.16242.
+
+Javelin South, Serpent Far
+	Stand
+		Middle
+	First attack
+		Javelin
+		8 ticks
+	Simulation
+		https://osrs-colosseum.netlify.app/?19201.16242.
+
+Javelin South, Serpent Close
+	Stand
+		North
+	First attack
+		Serpent
+		8 ticks
+	Simulation
+		https://osrs-colosseum.netlify.app/?13141.16242.
+
+Javelin North, Serpent South
+	Stand
+		Middle
+	First attack
+		Serpent
+		5 ticks
+	Simulation
+		https://osrs-colosseum.netlify.app/?16241.13202.
+
+Javelin North, Serpent Far
+	Stand
+		Middle
+	First attack
+		Javelin
+		6 ticks
+		2 attacks before serpent hits
+	Simulation
+		https://osrs-colosseum.netlify.app/?19201.13202.
+
+Javelin North, Serpent Close
+	Stand
+		Middle
+	First attack
+		Javelin
+		6 ticks
+	Simulation
+		https://osrs-colosseum.netlify.app/?13141.13202.
